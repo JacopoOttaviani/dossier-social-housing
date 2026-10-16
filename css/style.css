@@ -252,7 +252,7 @@ img, svg { max-width: 100%; display: block; }
   margin-right: 8px;
   vertical-align: middle;
 }
-.sm-delta {
+.sm-now {
   margin-left: auto;
   font-family: var(--serif);
   font-size: 19px;

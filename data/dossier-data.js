@@ -53,7 +53,7 @@ window.DOSSIER = {
         ["23.2<small>%</small>", "of main residences; the SRU law requires 25%"],
         ["327,000", "households on the waiting list at the end of 2025, 47% of them already Parisian"],
         ["130,316", "social homes financed since the SRU law, 2001"],
-        ["+9.8<small>pp</small>", "share gained since 2001, the largest rise in this dossier"]
+        ["13.4<small>%</small>", "of main residences in 2001; the share has grown by nearly three-quarters since, the largest rise in this dossier"]
       ]
     },
     berlin: {

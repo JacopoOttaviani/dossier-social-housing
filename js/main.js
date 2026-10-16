@@ -25,6 +25,22 @@
     return t;
   };
 
+  /* how a share moved, in words. A fraction of the starting share
+     ("down by four-fifths") reads more easily than a difference in
+     percentage points ("−17.4pp"). */
+  const FRACTIONS = [[1 / 4, "a quarter"], [1 / 3, "a third"], [1 / 2, "half"],
+    [2 / 3, "two-thirds"], [3 / 4, "three-quarters"], [4 / 5, "four-fifths"]];
+  const sameShare = (then, now) => Math.abs(now / then - 1) < 0.1;
+  function shareChange(then, now) {
+    const r = now / then, dir = r > 1 ? "up" : "down", f = Math.abs(r - 1);
+    if (sameShare(then, now)) return "about the same";
+    if (f < 0.2) return `${dir} slightly`;
+    if (r >= 1.9) return r < 2.1 ? "doubled" : `up ${Math.round(r)}-fold`;
+    const [v, word] = FRACTIONS.reduce((a, b) => Math.abs(b[0] - f) < Math.abs(a[0] - f) ? b : a);
+    const q = f < v - 0.015 ? "nearly " : f > v + 0.015 ? "more than " : "";
+    return `${dir} by ${q}${word}`;
+  }
+
   /* ---------- tooltip ---------- */
   function makeTip(container) {
     const tip = document.createElement("div");
@@ -65,7 +81,6 @@
       const c = D.cities[key];
       const s = c.sharePath;
       const color = CITY_COLOR[key];
-      const delta = Math.round((c.shareNow - c.shareThen) * 10) / 10;
       /* x follows the calendar, not the index: the points are the years the
          source reports, and they are unevenly spaced */
       const ya = s.years[0], yb = s.years[s.years.length - 1];
@@ -78,12 +93,12 @@
       card.style.setProperty("--city", color);
       card.innerHTML =
         `<span class="sm-head"><span class="sm-name">${c.label}</span>` +
-        /* a city whose share never moved reads better as "flat" than as "+0pp" */
-        `<span class="sm-delta">${delta ? (delta > 0 ? "+" : "−") + Math.abs(delta) + "pp" : "flat"}</span></span>` +
+        /* the headline is the share today; the foot says where it started, in words */
+        `<span class="sm-now">${c.shareNow}%</span></span>` +
         `<span class="sm-spark"></span>` +
-        `<span class="sm-foot">${delta
-          ? `${c.shareNow}% in ${c.nowYear} · ${c.shareThen}% in ${c.thenYear}`
-          : `${c.shareNow}% in ${c.nowYear} · unmoved since ${c.thenYear}`}</span>`;
+        `<span class="sm-foot">in ${c.nowYear} · ${sameShare(c.shareThen, c.shareNow)
+          ? `about the same as in ${c.thenYear} (${c.shareThen}%)`
+          : `${c.shareNow > c.shareThen ? "up" : "down"} from ${c.shareThen}% in ${c.thenYear}`}</span>`;
 
       const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, preserveAspectRatio: "none",
         role: "img", "aria-label": `${c.label}: social housing is ${c.shareNow}% of homes in ${c.nowYear}, ${c.shareThen}% in ${c.thenYear}` });
@@ -433,7 +448,7 @@
   (function slope() {
     const host = document.getElementById("slope-chart");
     if (!host) return;
-    const W = 960, H = 480, M = { t: 40, r: 250, b: 40, l: 150 };
+    const W = 960, H = 480, M = { t: 40, r: 330, b: 40, l: 150 };
     const maxV = 58;
     const Y = v => M.t + (H - M.t - M.b) * (1 - v / maxV);
     const X0 = M.l, X1 = W - M.r;
@@ -475,11 +490,10 @@
     for (const r of rights) {
       const ly = Math.max(r.yN + 4, lastRY + 16);
       lastRY = ly;
-      const delta = Math.round((r.s.now - r.s.then) * 10) / 10;
       const t = svgEl("text", { x: X1 + 10, y: ly, fill: r.color, "font-size": 13.5, "font-weight": r.s.muted ? 400 : 600 });
       const a = svgEl("tspan", {}); a.textContent = `${r.s.now}% ${r.label} ${r.s.nowYear}`;
       const bTs = svgEl("tspan", { fill: INK3, "font-weight": 400, dx: "6" });
-      bTs.textContent = `${delta >= 0 ? "+" : "−"}${Math.abs(delta)}pp`;
+      bTs.textContent = shareChange(r.s.then, r.s.now);
       t.appendChild(a); t.appendChild(bTs);
       svg.appendChild(t);
     }
