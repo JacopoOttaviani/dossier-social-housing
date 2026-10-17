@@ -25,8 +25,8 @@ window.DOSSIER = {
       sharePath: { years: [1991, 2001, 2011, 2025], vals: [40.9, 43.0, 42.3, 42] },
       shareNow: 42, shareThen: 40.9, thenYear: 1991, nowYear: 2025,
       stats: [
-        ["220,000", "municipal flats, by the city's count Europe's largest municipal landlord"],
-        ["≈185,000", "limited-profit &amp; co-operative rental flats"],
+        ["220,000", "flats owned by the city, which calls itself Europe's largest municipal landlord"],
+        ["≈185,000", "flats rented out by limited-profit and co-operative landlords"],
         ["42<small>%</small>", "of Vienna's households rent from the city or a limited-profit landlord"],
         ["4,054", "new subsidised homes approved in 2025, up from about 2,000 in 2022"],
         ["≈1 in 2", "Viennese live in social or subsidised housing, according to the city"]
@@ -39,9 +39,9 @@ window.DOSSIER = {
       stats: [
         ["≈55,000", "flats owned by Heka, the city's housing company and Finland's largest landlord"],
         ["1 in 7", "Helsinki residents lives in a Heka flat"],
-        ["16<small>%</small>", "of the city's homes are state-subsidised (ARA) rentals, plus ≈7% price-regulated or right-of-occupancy flats"],
-        ["−80<small>%</small>", "homelessness in Finland, 1987–2023, people living alone"],
-        ["+20<small>%</small>", "rise in 2025, after cuts to benefits and support services"]
+        ["16<small>%</small>", "of the city's homes are state-subsidised rentals, plus ≈7% with regulated prices or part-buy, part-rent terms"],
+        ["80<small>%</small>", "drop in homelessness in Finland, 1987–2023, among people living alone"],
+        ["20<small>%</small>", "rise in homelessness in 2025, after cuts to benefits and support services"]
       ]
     },
     paris: {
@@ -49,11 +49,11 @@ window.DOSSIER = {
       sharePath: { years: [2001, 2005, 2011, 2014, 2016, 2020, 2022, 2023, 2024, 2025], vals: [13.4, 14.6, 17.1, 18.5, 19.9, 21.8, 23.3, 23.7, 23.1, 23.2] },
       shareNow: 23.2, shareThen: 13.4, thenYear: 2001, nowYear: 2025,
       stats: [
-        ["276,032", "social dwellings on 1 January 2025"],
-        ["23.2<small>%</small>", "of main residences; the SRU law requires 25%"],
+        ["276,032", "social homes on 1 January 2025"],
+        ["23.2<small>%</small>", "of Paris's main homes; the law requires 25%"],
         ["327,000", "households on the waiting list at the end of 2025, 47% of them already Parisian"],
-        ["130,316", "social homes financed since the SRU law, 2001"],
-        ["13.4<small>%</small>", "of main residences in 2001; the share has grown by nearly three-quarters since, the largest rise in this dossier"]
+        ["130,316", "social homes funded since 2001, under the SRU law"],
+        ["13.4<small>%</small>", "share in 2001; it has grown by nearly three-quarters since, the biggest rise in this dossier"]
       ]
     },
     berlin: {
@@ -62,10 +62,10 @@ window.DOSSIER = {
       shareNow: 4.2, shareThen: 21.6, thenYear: 1991, nowYear: 2024,
       stats: [
         ["85,765", "social-rent flats at the end of 2024, down from 370,861 in 1991"],
-        ["200,000+", "municipal flats privatised between 1990 and the mid-2000s"],
-        ["−8,387", "flats left the subsidy system in 2025"],
-        ["+5,175", "new social flats approved for subsidy in 2025"],
-        ["57.6<small>%</small>", "voted to expropriate the largest landlords, 2021"]
+        ["200,000+", "city-owned flats sold between 1990 and the mid-2000s"],
+        ["8,387", "flats dropped out of the subsidy system in 2025"],
+        ["5,175", "new social flats approved for funding in 2025"],
+        ["57.6<small>%</small>", "of voters backed taking the biggest landlords' flats into public ownership, 2021"]
       ]
     },
     london: {
@@ -74,10 +74,10 @@ window.DOSSIER = {
       shareNow: 21.0, shareThen: 29.2, thenYear: 1991, nowYear: 2025,
       stats: [
         ["394,591", "council homes in London in 2025, half the 1986 peak of 795,789"],
-        ["318,909", "London council homes sold through Right to Buy, 1980–2025"],
+        ["318,909", "London council homes sold to their tenants under Right to Buy, 1980–2025"],
         ["341,421", "households on London's waiting lists, March 2025, the most since 2013"],
-        ["76,020", "households in temporary accommodation in London, March 2026"],
-        ["2.3×", "what Islington paid to buy back 56 homes it had sold under Right to Buy"]
+        ["76,020", "London households in temporary accommodation, such as B&amp;Bs and hostels, March 2026"],
+        ["2.3×", "the sale price: what Islington paid to buy back 56 homes it had sold under Right to Buy"]
       ]
     },
     rome: {
@@ -88,11 +88,11 @@ window.DOSSIER = {
       sharePath: { years: [2001, 2019], vals: [6.7, 5.7], est: [0] },
       shareNow: 5.7, shareThen: 6.7, thenYear: 2001, nowYear: 2019,
       stats: [
-        ["72,327", "public homes in the city in 2019, 5.7% of its dwellings"],
-        ["45,981", "held by ATER, the regional agency; 22,729 by the city itself"],
+        ["72,327", "public homes in the city in 2019, 5.7% of all homes"],
+        ["45,981", "owned by ATER, the regional housing agency; 22,729 by the city itself"],
         ["≈18,000", "households on the waiting list"],
-        ["208", "flats assigned from that list in 2024, about 85 of them released by ATER"],
-        ["2.6<small>%</small>", "of Italy's homes are public; 650,000 households on municipal waiting lists"]
+        ["208", "flats given to households on that list in 2024, about 85 of them from ATER"],
+        ["2.6<small>%</small>", "of Italy's homes are public housing; 650,000 households are on city waiting lists"]
       ]
     }
   },
@@ -103,12 +103,12 @@ window.DOSSIER = {
      definition (rents not sub-market); Greece has no social rental sector. */
   mapCountries: [
     { key: "nl", name: "Netherlands", lat: 52.37, lon: 4.90, share: 34.1, year: 2021, note: "housing associations; defined by rent level, not ownership", focus: true },
-    { key: "at", name: "Austria", lat: 48.21, lon: 16.37, share: 23.6, year: 2019, note: "municipal + limited-profit; main residences only", focus: true },
-    { key: "dk", name: "Denmark", lat: 55.68, lon: 12.57, share: 21.3, year: 2022, note: "almene boliger (non-profit)" },
+    { key: "at", name: "Austria", lat: 48.21, lon: 16.37, share: 23.6, year: 2019, note: "city-owned and limited-profit; main homes only", focus: true },
+    { key: "dk", name: "Denmark", lat: 55.68, lon: 12.57, share: 21.3, year: 2022, note: "non-profit housing (almene boliger)" },
     { key: "uk", name: "United Kingdom", lat: 51.51, lon: -0.12, share: 16.4, year: 2022, note: "OECD figure covers England only", focus: true },
-    { key: "fr", name: "France", lat: 48.86, lon: 2.35, share: 14.0, year: 2018, note: "HLM sector", focus: true },
+    { key: "fr", name: "France", lat: 48.86, lon: 2.35, share: 14.0, year: 2018, note: "HLM, France's social housing", focus: true },
     { key: "ie", name: "Ireland", lat: 53.35, lon: -6.26, share: 12.7, year: 2016, note: "includes dwellings leased from private owners" },
-    { key: "fi", name: "Finland", lat: 60.17, lon: 24.94, share: 10.9, year: 2021, note: "ARA stock", focus: true },
+    { key: "fi", name: "Finland", lat: 60.17, lon: 24.94, share: 10.9, year: 2021, note: "state-subsidised (ARA) housing", focus: true },
     { key: "ch", name: "Switzerland", lat: 46.95, lon: 7.45, share: 8.0, year: 2013, note: "includes co-operatives" },
     { key: "pl", name: "Poland", lat: 52.23, lon: 21.01, share: 6.6, year: 2020, note: "municipal stock; 10.1% in 2009" },
     { key: "si", name: "Slovenia", lat: 46.06, lon: 14.51, share: 4.7, year: 2018, note: "" },
@@ -118,15 +118,15 @@ window.DOSSIER = {
     { key: "hu", name: "Hungary", lat: 47.50, lon: 19.04, share: 2.6, year: 2018, note: "municipal stock" },
     { key: "de", name: "Germany", lat: 52.52, lon: 13.40, share: 2.6, year: 2021, note: "time-limited subsidies; 3.7% in 2011", focus: true },
     { key: "sk", name: "Slovakia", lat: 48.15, lon: 17.11, share: 2.5, year: 2021, note: "municipal stock; 1.6% in 2011" },
-    { key: "it", name: "Italy", lat: 41.90, lon: 12.50, share: 2.4, year: 2022, note: "ERP; 4.2% in 2010. Italian sources give 2.3–2.7% (Federcasa) or 2.6% (Svimez)", focus: true },
+    { key: "it", name: "Italy", lat: 41.90, lon: 12.50, share: 2.4, year: 2022, note: "public housing (ERP); 4.2% in 2010. Italian sources give 2.3–2.7% (Federcasa) or 2.6% (Svimez)", focus: true },
     { key: "lv", name: "Latvia", lat: 56.95, lon: 24.11, share: 1.9, year: 2016, note: "" },
     { key: "es", name: "Spain", lat: 40.42, lon: -3.70, share: 1.1, year: 2019, note: "may include other reduced-rent housing, e.g. employer-provided" },
     { key: "ee", name: "Estonia", lat: 59.44, lon: 24.75, share: 1.1, year: 2017, note: "" },
     { key: "pt", name: "Portugal", lat: 38.72, lon: -9.14, share: 1.1, year: 2021, note: "63,217 dwellings — down from 118,334 in 2011" },
     { key: "lt", name: "Lithuania", lat: 54.69, lon: 25.28, share: 0.8, year: 2020, note: "" },
     { key: "is", name: "Iceland", lat: 64.15, lon: -21.94, share: 11.1, year: 2016, offMap: true, note: "outside the map frame; may include student housing" },
-    { key: "se", name: "Sweden", lat: 59.33, lon: 18.07, share: null, note: "allmännyttan is roughly 16% of the stock, but its rents are negotiated rather than sub-market, so the OECD definition excludes it" },
-    { key: "gr", name: "Greece", lat: 37.98, lon: 23.73, share: null, note: "not in the OECD dataset: Greece has had no public rental housing body since the OEK was abolished in 2012" }
+    { key: "se", name: "Sweden", lat: 59.33, lon: 18.07, share: null, note: "city-owned housing (allmännyttan) is roughly 16% of homes, but its rents are negotiated rather than below market, so the OECD does not count it" },
+    { key: "gr", name: "Greece", lat: 37.98, lon: 23.73, share: null, note: "not in the OECD data: Greece has had no public housing agency since the OEK was abolished in 2012" }
   ],
 
   /* ---------- city chapter series ---------- */
@@ -138,10 +138,10 @@ window.DOSSIER = {
       title: "How Vienna's households live",
       unit: "% of households",
       bars: [
-        ["Municipal (Gemeindebau)", 20, true],
+        ["City-owned (Gemeindebau)", 20, true],
         ["Limited-profit & co-op", 22, true],
-        ["Other rental, mostly private", 34, false],
-        ["Owner-occupied", 19, false],
+        ["Other renters, mostly private", 34, false],
+        ["Own their home", 19, false],
         ["Other", 4, false]
       ],
       note: "highlighted bars are the social sector"
@@ -164,7 +164,7 @@ window.DOSSIER = {
        the denominator comes from GMBI declarations instead of the housing tax. */
     paris: {
       type: "line",
-      title: "Social housing as a share of Paris's main residences, 2001–2025",
+      title: "Paris: the share of homes that are social, 2001–2025",
       unit: "social dwellings, % of main residences",
       years: [2001, 2005, 2011, 2014, 2016, 2020, 2022, 2023, 2024, 2025],
       vals: [13.4, 14.6, 17.1, 18.5, 19.9, 21.8, 23.3, 23.7, 23.1, 23.2],
@@ -177,7 +177,7 @@ window.DOSSIER = {
        165.000"), 2016, 2021 and 2025. */
     berlin: {
       type: "line",
-      title: "Sozialwohnungen in Berlin, 1991–2024",
+      title: "Berlin's social-rent flats, 1991–2024",
       unit: "thousand social-rent flats",
       years: [1991, 1995, 2000, 2010, 2015, 2020, 2024],
       vals: [370.9, 357.2, 268.0, 165.0, 122.0, 95.5, 85.8],
@@ -202,14 +202,14 @@ window.DOSSIER = {
        information requests, reported April 2025. */
     rome: {
       type: "bars",
-      title: "Rome: stock, waiting list and 2024 assignments",
+      title: "Rome: homes, waiting list and flats handed out in 2024",
       unit: "count",
       bars: [
         ["Public homes in the city", 72327, true],
         ["Households on the waiting list", 18000, false],
-        ["Flats assigned from the list in 2024", 208, false]
+        ["Flats handed out in 2024", 208, false]
       ],
-      note: "at 208 assignments a year, clearing the current list would take about 90 years"
+      note: "at 208 flats a year, housing everyone now on the list would take about 90 years"
     }
   },
 

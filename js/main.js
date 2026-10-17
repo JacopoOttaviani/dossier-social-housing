@@ -293,8 +293,8 @@
     const leg = document.getElementById("europe-legend");
     if (leg) leg.innerHTML =
       `<span class="li"><span class="swatch ring" style="border-color:${SEQ[4]}"></span>` +
-      `the figure beside each country is social rental housing as % of all homes</span>` +
-      `<span class="li" style="color:${INK3}">circle area ∝ share · ✳ Sweden sits outside the definition — see the note</span>`;
+      `the figure beside each country is social housing as % of all homes</span>` +
+      `<span class="li" style="color:${INK3}">bigger circle, bigger share · ✳ Sweden is not counted — see the note below</span>`;
 
     const tbody = document.querySelector("#europe-table tbody");
     if (tbody) tbody.innerHTML = countries.concat(offMap).sort((a, b) => b.share - a.share).concat(special).map(c =>
@@ -667,7 +667,7 @@
           `<span class="hl-step"><span class="hl-sw" style="background:${HEAT[i]};opacity:${HEAT_ALPHA}"></span>` +
           `${cover ? Math.round(b * 100) + "%" : fmtN(b)}${i === breaks.length - 1 ? "+" : ""}</span>`).join("") +
         `</span><span class="aside">` +
-        (cover ? "share of the ground under municipal-company parcels" : `${c.tenure} per km²`) +
+        (cover ? "share of the ground covered by the city housing companies' plots" : `${c.tenure} per km²`) +
         `, smoothed over 500 m · <span class="peak"></span>` +
         (cover ? "" : " · one scale for all five cities with home counts") + `</span></div>`;
       host.insertAdjacentElement("beforebegin", mapBar);
@@ -1061,7 +1061,7 @@
         const t = document.createElement("span");
         t.className = "li";
         t.style.color = INK3;
-        t.textContent = `circle area ∝ homes, one scale for all six cities · largest here: ${fmtN(top)}`;
+        t.textContent = `bigger circle, more homes · same scale in all six cities · largest here: ${fmtN(top)}`;
         leg.appendChild(t);
       }
       /* a gesture nobody is told about is a gesture nobody uses */
@@ -1096,7 +1096,7 @@
       const subDots = sub ? sub.innerHTML : "";
       const cap = s => s[0].toUpperCase() + s.slice(1);
       const subHeat = cover
-        ? "Share of the ground under the state-owned housing companies' parcels, smoothed over 500 m"
+        ? "Share of the ground covered by the city housing companies' plots, smoothed over 500 m"
         : AREAL[key]
           ? `${cap(c.tenure)} per km² · each ${AREAL[key]}'s count spread over its area, smoothed over 500 m`
           : `${cap(c.tenure)} per km², smoothed over 500 m · one colour scale for every city`;
