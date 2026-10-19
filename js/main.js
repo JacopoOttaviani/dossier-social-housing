@@ -95,7 +95,12 @@
         `<span class="sm-head"><span class="sm-name">${c.label}</span>` +
         /* the headline is the share today; the foot says where it started, in words */
         `<span class="sm-now">${c.shareNow}%</span></span>` +
-        `<span class="sm-spark"></span>` +
+        /* the first and last share sit either side of the line, level with
+           its ends: on the shared 0–60% scale most lines are nearly flat, so
+           the two numbers carry the change */
+        `<span class="sm-spark"><span class="sm-v sm-v0"><span>${s.vals[0]}%</span></span>` +
+        `<span class="sm-plot"></span>` +
+        `<span class="sm-v sm-v1"><span>${s.vals[s.vals.length - 1]}%</span></span></span>` +
         `<span class="sm-foot">in ${c.nowYear} · ${sameShare(c.shareThen, c.shareNow)
           ? `about the same as in ${c.thenYear} (${c.shareThen}%)`
           : `${c.shareNow > c.shareThen ? "up" : "down"} from ${c.shareThen}% in ${c.thenYear}`}</span>`;
@@ -112,11 +117,10 @@
         "stroke-linejoin": "round", "stroke-linecap": "round",
         "vector-effect": "non-scaling-stroke"
       }));
-      card.querySelector(".sm-spark").appendChild(svg);
+      const spark = card.querySelector(".sm-plot");
+      spark.appendChild(svg);
       /* one dot per published measure, hollow where the point is an estimate;
          drawn in HTML over the stretched SVG so the dots stay round */
-      const spark = card.querySelector(".sm-spark");
-      spark.style.position = "relative";
       s.vals.forEach((v, i) => {
         const dot = document.createElement("span");
         const last = i === s.vals.length - 1;
@@ -126,6 +130,11 @@
           (est.has(i) ? `background:${CREAM};border:1.4px solid ${color};` : `background:${color};border:1.2px solid ${CREAM};`);
         dot.title = `${s.years[i]}: ${v}%${est.has(i) ? " (estimate)" : ""}`;
         spark.appendChild(dot);
+      });
+      /* level each end label with its dot, kept inside the band */
+      [[".sm-v0", s.vals[0]], [".sm-v1", s.vals[s.vals.length - 1]]].forEach(([sel, v]) => {
+        card.querySelector(sel + " > span").style.top =
+          Math.min(Math.max(Y(v) / H * 100, 14), 86).toFixed(2) + "%";
       });
       host.appendChild(card);
     }
