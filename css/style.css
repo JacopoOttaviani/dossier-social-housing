@@ -271,25 +271,6 @@ img, svg { max-width: 100%; display: block; }
   font-variant-numeric: tabular-nums;
   line-height: 1;
 }
-/* the line, with its first share to the left and its latest to the right */
-.sm-spark { margin-top: 5px; display: flex; align-items: stretch; }
-.sm-plot { position: relative; flex: 1 1 auto; min-width: 0; height: 52px; }
-.sm-plot svg { width: 100%; height: 100%; display: block; }
-.sm-v {
-  position: relative;
-  flex: 0 0 44px;
-  font-family: var(--sans);
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-.sm-v > span { position: absolute; transform: translateY(-50%); }
-.sm-v0 { color: var(--ink-2); }
-.sm-v0 > span { right: 7px; }
-.sm-v1 { color: var(--city); }
-.sm-v1 > span { left: 7px; }
 .sm-foot {
   font-family: var(--sans);
   font-size: 11.5px;
@@ -464,7 +445,6 @@ figcaption.src a:hover,
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.citymap .cm-dots circle { transition: fill-opacity .12s; }
 .citymap .cm-scale path { fill: none; stroke-linecap: butt; }
 
 /* zoom: the map takes the gesture, the page keeps the scroll */
@@ -730,7 +710,7 @@ section.city {
   margin: 24px auto 0;
   padding: 0 20px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 36px;
   align-items: start;
 }
@@ -886,11 +866,8 @@ section.city {
   .rail-grid { grid-template-columns: 1fr; }
 }
 
-/* cities whose register maps land rather than counted homes (Berlin) */
-.citymap .cm-parcels { stroke-linejoin: round; }
-
-/* city maps: circles / heatmap switch, with the key of the heat view above
-   the map (the circle key stays below it) */
+/* city maps: districts / heatmap switch, with the colour key both views
+   share above the map */
 .map-bar {
   display: flex;
   flex-wrap: wrap;
@@ -931,9 +908,14 @@ section.city {
   font-variant-numeric: tabular-nums;
 }
 .hl-sw { display: block; height: 10px; }
+.hl-step[hidden] { display: none; }
+.hl-low { min-width: 62px; margin-right: 4px; }
+.hl-low .hl-sw { box-shadow: inset 0 0 0 1px var(--cream-line); }
 .hl-step:first-child .hl-sw { border-radius: 2px 0 0 2px; }
 .hl-step:last-child .hl-sw { border-radius: 0 2px 2px 0; }
-/* stroke width set in js/main.js, like the land's */
+/* stroke widths set in js/main.js, like the land's */
+.citymap .cm-dist { stroke: var(--cream); stroke-linejoin: round; }
+.citymap .cm-hi { pointer-events: none; stroke-linejoin: round; }
 .citymap .cm-heat { pointer-events: none; }
 .citymap .cm-heat-lines {
   fill: none;
@@ -949,3 +931,147 @@ section.city {
 .is-embedded .city-nav { position: static; }
 .is-embedded .hero-inner { padding-top: 120px; padding-bottom: 84px; }
 .is-embedded .mast-nav .mast-logo { display: none; }
+
+/* ------------------------------------------------ Europe: the country chart.
+   The countries of the six cities carry their city's colour (--c); the city
+   is named beside the country. Hover shows the year of each figure. */
+.eu-city {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--c, var(--ink-3));
+  margin-left: 3px;
+  letter-spacing: .02em;
+}
+
+/* every country as a bar, longest first; the dashed line is the EU average */
+.eu-bars { --nw: 12em; position: relative; padding-top: 24px; font-family: var(--sans); font-size: 14px; }
+.eb-row { display: flex; align-items: center; height: 25px; }
+.eb-row:hover { background: rgba(73,31,20,.045); }
+.eb-name {
+  flex: 0 0 var(--nw);
+  padding-right: 10px;
+  text-align: right;
+  color: var(--ink-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.eb-row.is-city .eb-name { color: var(--ink); font-weight: 600; }
+.eb-track { position: relative; flex: 1 1 auto; align-self: stretch; }
+.eb-bar {
+  position: absolute;
+  left: 0; top: 5px; bottom: 5px;
+  width: calc(var(--x) * 100%);
+  min-width: 2px;
+  background: var(--c);
+  border-radius: 0 2px 2px 0;
+}
+.eb-val, .eb-none {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.eb-val { left: calc(var(--x) * 100% + 6px); font-weight: 600; color: var(--ink-2); }
+.eb-row.is-city .eb-val { color: var(--c); }
+.eb-none { left: 0; color: var(--ink-3); }
+.eb-ref {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: calc(var(--nw) + (100% - var(--nw)) * var(--x));
+  border-left: 1px dashed var(--ink-3);
+  pointer-events: none;
+}
+.eb-ref span { position: absolute; top: 2px; left: 5px; font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+
+/* out of every 100 homes: a 10 × 10 grid per country */
+.eu-waffle {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(122px, 1fr));
+  gap: 22px 16px;
+  font-family: var(--sans);
+}
+.ew-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 1.5px;
+  width: 100%;
+  max-width: 112px;
+  aspect-ratio: 1;
+}
+.ew-grid i { display: block; background-color: var(--cream-deep); border-radius: 1px; }
+.ew-grid i.on { background-color: var(--c); }
+.ew-card.is-none .ew-grid { opacity: .55; }
+.ew-name { margin-top: 7px; font-size: 13.5px; line-height: 1.25; color: var(--ink); }
+.ew-card.is-city .ew-name { font-weight: 600; }
+.ew-card .eu-city { display: block; margin: 1px 0 0; }
+.ew-val { margin-top: 2px; font-size: 12.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.ew-card.is-city .ew-val { color: var(--c); font-weight: 600; }
+
+/* one dot per country on a shared scale, grouped by region */
+.eu-dots { --nw: 12em; font-family: var(--sans); font-size: 14px; }
+.ed-axis, .ed-row { display: flex; align-items: center; }
+.ed-axis { height: 20px; font-size: 12px; color: var(--ink-3); }
+.ed-axis .ed-track { background: none; }
+.ed-axis .ed-track span { position: absolute; left: calc(var(--x) * 100%); top: 2px; transform: translateX(-50%); }
+.ed-axis .ed-track span:first-child { transform: none; }
+.ed-group {
+  margin: 12px 0 2px;
+  padding: 8px 0 0;
+  border-top: 1px solid var(--cream-line);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.ed-row { height: 25px; }
+.ed-row:hover { background: rgba(73,31,20,.045); }
+.ed-name {
+  flex: 0 0 var(--nw);
+  padding-right: 10px;
+  text-align: right;
+  color: var(--ink-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ed-row.is-city .ed-name { color: var(--ink); font-weight: 600; }
+.ed-track {
+  position: relative;
+  flex: 1 1 auto;
+  align-self: stretch;
+  /* a hairline every 10 points: 0, 10, 20 and 30% of a 0–40% scale */
+  background: repeating-linear-gradient(90deg, var(--cream-line) 0 1px, transparent 1px 25%);
+}
+.ed-dot {
+  position: absolute;
+  left: calc(var(--x) * 100%);
+  top: 50%;
+  width: 12px; height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: var(--c);
+  border: 1.5px solid var(--cream);
+}
+.ed-val, .ed-none {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.ed-val { left: calc(var(--x) * 100% + 10px); font-weight: 600; color: var(--ink-2); }
+.ed-row.is-city .ed-val { color: var(--c); }
+.ed-none { left: 6px; color: var(--ink-3); }
+
+@media (max-width: 520px) {
+  .eu-bars, .eu-dots { --nw: 8.6em; font-size: 13px; }
+  .eb-name .eu-city, .ed-name .eu-city { display: none; }
+  .eu-waffle { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 12px; }
+}

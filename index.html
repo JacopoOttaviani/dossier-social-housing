@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20261027">
+<link rel="stylesheet" href="css/style.css?v=20261030">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -51,12 +51,12 @@
     <p>Most of that decline was a political choice. Cities and governments sold their social homes, often to the tenants at a discount, or let the subsidies run out.</p>
     <p>Keeping social housing did not protect any city from rising rents. But it kept many households out of the private market. In Vienna, 42 per cent of households rent from the city or from limited-profit landlords, companies that by law must put their profits back into housing. Researchers have called the stability of social housing in Vienna and Helsinki <a href="https://www.tandfonline.com/doi/full/10.1080/02673037.2022.2135170">"remarkable"</a>. Where cities sold their homes, they now spend more public money instead. London councils are buying back homes sold to tenants under Right to Buy, Islington at more than twice the price it sold them for. And 76,020 London households live in temporary accommodation, such as B&amp;Bs and hostels.</p>
     <p>The European Union has taken up the issue only recently. In December 2025 the European Commission presented its first <a href="https://housing.ec.europa.eu/european-affordable-housing-plan_en">Affordable Housing Plan</a>, under its first commissioner for housing, backed by an investment platform at the European Investment Bank. On 9 September 2026 it proposed an <a href="https://housing.ec.europa.eu/document/download/35c4d242-60cb-408e-8a96-6ddf8ad18a70_en?filename=Proposal+for+a+Regulation+-+Affordable+Housing+Act.pdf">Affordable Housing Act</a>, now before the European Parliament and EU governments. It would set common rules for local housing measures, including when cities can limit short-term holiday rentals in areas short of homes. This dossier shows where those measures start from. The six cities point the same way. Where social housing held or grew, a lasting commitment stood behind it: a levy on wages in Vienna, a legal quota in Paris. And London and Berlin now pay far more per home to buy housing back than they got when they sold it.</p>
-    <p class="note">Country figures come from the OECD's housing database; each refers to a year between 2013 and 2022. The Cormoran compiled the city figures from each city's statistics office or housing agency, and every point is a published figure. Each city defines "social housing" in its own way. All sources and methods are at the bottom of the page.</p>
+    <p class="note">Country figures come from the OECD's housing database; each refers to a year between 2013 and 2022. The Cormoran compiled the city figures from each city's statistics office or housing agency, and every one is a published figure. Each city defines "social housing" in its own way. All sources and methods are at the bottom of the page.</p>
     </div>
 
     <aside class="intro-rail" aria-label="The six cities at a glance">
       <h3 class="rail-title">The share at a glance</h3>
-      <p class="rail-sub">How much of each city's housing is social, from the oldest figure available to the latest. The big number is today's share. All six panels use the same scale, from 0 to 60%. Each dot is a published figure; hollow dots are estimates. Click a card to jump to that city.</p>
+      <p class="rail-sub">How much of each city's housing is social today, and where it started. Click a card to jump to that city.</p>
       <div class="rail-grid" id="rail-grid"></div>
       <p class="rail-foot">Compiled by The Cormoran from city records and statistics offices · the first year differs by city (1990–2001), and each city counts social housing its own way · <a href="#sources">sources for every city</a></p>
     </aside>
@@ -66,7 +66,7 @@
 <!-- ================= EUROPE MAP ================= -->
 <section id="map">
   <div class="section-head">
-    <p class="eyebrow">01 · The map</p>
+    <p class="eyebrow">01 · Europe</p>
     <h2>From 34 per cent in the Netherlands to 2.4 in Italy</h2>
     <p class="dek">The five countries with the most social housing (the Netherlands, Austria, Denmark, the United Kingdom and France) all kept a large sector going through the 1990s and 2000s. In southern Europe and in the former communist countries of the East, it was either never built on that scale or was sold to its tenants after 1990. The highest share is more than forty times the lowest.</p>
   </div>
@@ -75,9 +75,12 @@
       <div class="viz-title">Social rental housing across Europe</div>
       <div class="viz-sub">Share of each country's homes that are social housing · figures from years between 2013 and 2022 · hover over a country to see its year</div>
     </div>
-    <div class="viz-canvas" id="europe-map"></div>
+    <div class="map-bar"><div class="map-switch" id="eu-switch" role="group" aria-label="Chart view"><button type="button" data-view="eu-bars" aria-pressed="true">Bars</button><button type="button" data-view="eu-waffle" aria-pressed="false">Out of 100 homes</button><button type="button" data-view="eu-dots" aria-pressed="false">By region</button></div></div>
+    <div class="viz-canvas" id="eu-bars"></div>
+    <div class="viz-canvas" id="eu-waffle" hidden></div>
+    <div class="viz-canvas" id="eu-dots" hidden></div>
     <div class="legend" id="europe-legend"></div>
-    <p class="viz-note">Bigger circles mean a bigger share: a country with twice the share has a circle with twice the area. Two countries have dashed outlines. In Sweden, homes owned by city housing companies are about 16 per cent of the total. But their rents are negotiated rather than set below market, so the OECD does not count them as social housing. Greece has almost none to show: its state housing agency was closed in 2012 and never replaced. Iceland (11.1 per cent) is off the edge of the map and appears only in the table.</p>
+    <p class="viz-note">Two countries are marked ✳ because the OECD gives no figure for them. In Sweden, homes owned by city housing companies are about 16 per cent of the total. But their rents are negotiated rather than set below market, so the OECD does not count them as social housing. Greece has almost none to show: its state housing agency was closed in 2012 and never replaced.</p>
     <details class="data-table">
       <summary>View as table</summary>
       <table id="europe-table">
@@ -93,7 +96,7 @@
 <div class="section-head" id="cities">
   <p class="eyebrow">02 · Six cities</p>
   <h2>City by city</h2>
-  <p class="dek">Vienna kept building. Helsinki used its social homes to house homeless people, even though they became a smaller part of a growing city. Paris raised its share because a national law requires it. Berlin and London lost much of theirs: Berlin by selling flats and letting subsidies run out, London by selling. Rome still owns most of its homes but hands out very few. Each city below has a map, a chart and its key figures.</p>
+  <p class="dek">Vienna kept building. Helsinki used its social homes to house homeless people, even though they became a smaller part of a growing city. Paris raised its share because a national law requires it. Berlin and London lost much of theirs: Berlin by selling flats and letting subsidies run out, London by selling. Rome still owns most of its homes but hands out very few. Each city below has a map and its key figures.</p>
 </div>
 
 <nav class="city-nav" aria-label="Cities">
@@ -114,20 +117,12 @@
     <figure class="viz citymap">
       <div class="viz-head">
         <div class="viz-title">Vienna's council housing</div>
-        <div class="viz-sub">Every city-owned estate (<em>Gemeindebau</em>) on the city's map · one circle per estate; bigger circles, more flats</div>
+        <div class="viz-sub">Municipal flats per km² in each of Vienna's 23 districts · counted from every city-owned estate (<em>Gemeindebau</em>) on the city's map</div>
       </div>
       <div class="viz-canvas" id="map-vienna"></div>
       <div class="legend" id="mapleg-vienna"></div>
-      <details class="maptab"><summary>The largest estates, as a table</summary><div id="maptab-vienna"></div></details>
+      <details class="maptab"><summary>The districts, as a table</summary><div id="maptab-vienna"></div></details>
       <figcaption class="src">Source: <a href="https://www.data.gv.at/katalog/datasets/a5987f3c-3131-4e6e-b91c-fe0756e69926">Stadt Wien Open Government Data, “Gemeindebau Standorte Wien”</a>, a map layer last updated in 2019, with district boundaries and watercourses from the same register. The city publishes each complex's flat count once and repeats it on every building of the complex; counted here once per address, which gives 1,657 complexes and 210,512 flats. Wiener Wohnen's <a href="https://www.data.gv.at/katalog/datasets/827fb7fd-09ac-4c5f-a241-4cc35cc09366">current register</a> lists 1,690 complexes and about 218,600 flats; its headline figure is 220,000.</figcaption>
-    </figure>
-    <figure class="viz">
-      <div class="viz-head">
-        <div class="viz-title">How Vienna's households live</div>
-        <div class="viz-sub">Whether Vienna's 978,600 households rent or own, 2025 · highlighted bars are social housing</div>
-      </div>
-      <div class="viz-canvas" id="chart-vienna"></div>
-      <figcaption class="src">Source: <a href="https://www.statistik.at/fileadmin/publications/Wohnen_2025_bf.pdf">Statistik Austria, <em>Wohnen 2025</em></a> (Mikrozensus), households with their main residence in Vienna; shares are rounded.</figcaption>
     </figure>
   </div>
   <div class="megadida">
@@ -150,20 +145,12 @@
     <figure class="viz citymap">
       <div class="viz-head">
         <div class="viz-title">Subsidised rental flats in Helsinki</div>
-        <div class="viz-sub">State-subsidised rental flats in each district · one circle per district; bigger circles, more flats</div>
+        <div class="viz-sub">State-subsidised rental flats per km² in each district</div>
       </div>
       <div class="viz-canvas" id="map-helsinki"></div>
       <div class="legend" id="mapleg-helsinki"></div>
-      <details class="maptab"><summary>The districts with the most, as a table</summary><div id="maptab-helsinki"></div></details>
-      <figcaption class="src">Source: <a href="https://hri.fi/data/dataset/aluesarjat_a03s_hki_askan_hallintaperuste_htyyppi">Aluesarjat</a>, the City of Helsinki’s own statistical database (dwellings by area and tenure, 31 December 2024), mapped onto district boundaries published by <a href="https://www.hsy.fi/en/environmental-information/geographic-information/">HSY</a>. Finland publishes no address-level register of subsidised flats, so each circle sits on a district centroid rather than on a building. The count covers arava and interest-subsidised rentals only: 65,088 flats, 16.3% of Helsinki’s 398,541 dwellings. Adding right-of-occupancy flats gives 19.7%.</figcaption>
-    </figure>
-    <figure class="viz">
-      <div class="viz-head">
-        <div class="viz-title">Homelessness in Finland, 1987–2025</div>
-        <div class="viz-sub">Homeless people living alone in Finland, in thousands · official yearly counts, selected years</div>
-      </div>
-      <div class="viz-canvas" id="chart-helsinki"></div>
-      <figcaption class="src">Source: <a href="https://www.varke.fi/en/statistics/homelessness">Varke homelessness surveys</a>, counted on 15 November each year: selected years from the full series in <a href="https://www.varke.fi/en/document/homeless-people-2024"><em>Homeless people 2024</em></a>, and the <a href="https://www.varke.fi/fi/tilastot-ja-julkaisut/asunnottomuus/asunnottomat-2025">2025 count</a> published in January 2026. Helsinki changed its counting method in 2018, so figures either side of that year are not fully comparable.</figcaption>
+      <details class="maptab"><summary>The districts, as a table</summary><div id="maptab-helsinki"></div></details>
+      <figcaption class="src">Source: <a href="https://hri.fi/data/dataset/aluesarjat_a03s_hki_askan_hallintaperuste_htyyppi">Aluesarjat</a>, the City of Helsinki’s own statistical database (dwellings by area and tenure, 31 December 2024), mapped onto district boundaries published by <a href="https://www.hsy.fi/en/environmental-information/geographic-information/">HSY</a>. Finland publishes no address-level register of subsidised flats, so the map shows each district's total rather than individual buildings. The count covers arava and interest-subsidised rentals only: 65,088 flats, 16.3% of Helsinki’s 398,541 dwellings. Adding right-of-occupancy flats gives 19.7%.</figcaption>
     </figure>
   </div>
   <div class="megadida">
@@ -186,20 +173,12 @@
     <figure class="viz citymap">
       <div class="viz-head">
         <div class="viz-title">Social housing in Paris</div>
-        <div class="viz-sub">Every address in France's national register of social homes · one circle per address; bigger circles, more homes</div>
+        <div class="viz-sub">Social homes per km² in each of Paris's 20 arrondissements · counted from every address in France's national register of social homes</div>
       </div>
       <div class="viz-canvas" id="map-paris"></div>
       <div class="legend" id="mapleg-paris"></div>
-      <details class="maptab"><summary>The largest addresses, as a table</summary><div id="maptab-paris"></div></details>
+      <details class="maptab"><summary>The arrondissements, as a table</summary><div id="maptab-paris"></div></details>
       <figcaption class="src">Source: <a href="https://www.data.gouv.fr/datasets/donnees-detaillees-au-logement-du-repertoire-des-logements-locatifs-des-bailleurs-sociaux-rpls">RPLS</a>, France’s register of every social rental dwelling, 1 January 2025 edition: one row per home, geolocated by the statistical service of the Ministry for Ecological Transition. Grouped here by street address: 9,645 addresses, 248,447 homes. A further 2,193 dwellings (0.9%) carry no coordinates and are not drawn. The register’s Paris total runs below <a href="https://www.apur.org/en/housing-dwelling/social-housing-stock/latest-figures-social-housing-paris">APUR’s</a> 276,032, which counts on the broader legal definition that also includes places in hostels and social residences.</figcaption>
-    </figure>
-    <figure class="viz">
-      <div class="viz-head">
-        <div class="viz-title">Paris: the share of homes that are social, 2001–2025</div>
-        <div class="viz-sub">Social homes as % of Paris's main homes, not counting second homes or empty flats · the dashed line is the legal target</div>
-      </div>
-      <div class="viz-canvas" id="chart-paris"></div>
-      <figcaption class="src">Source: <a href="https://www.apur.org/en/housing-dwelling/social-housing-stock/latest-figures-social-housing-paris">APUR, "Les chiffres du logement social à Paris"</a>: the official SRU rate at 1 January, from APUR's notes published between 2002 and 2026. From 2024 the number of main residences comes from owners' tax declarations rather than the housing tax, which lowered the rate although the stock kept growing.</figcaption>
     </figure>
   </div>
   <div class="megadida">
@@ -222,20 +201,12 @@
     <figure class="viz citymap">
       <div class="viz-head">
         <div class="viz-title">Land held by Berlin's state-owned housing companies</div>
-        <div class="viz-sub">Every plot of land where the city's own housing companies have homes, at addresses with four flats or more</div>
+        <div class="viz-sub">How much of each district's land the city's own housing companies hold homes on, at addresses with four flats or more</div>
       </div>
       <div class="viz-canvas" id="map-berlin"></div>
       <div class="legend" id="mapleg-berlin"></div>
-      <details class="maptab"><summary>As a table</summary><div id="maptab-berlin"></div></details>
-      <figcaption class="src">Source: <a href="https://daten.berlin.de/datensaetze/wohnungsbestand-der-landeseigenen-wohnungsunternehmen-wfs-4c4e0115">Wohnungsbestand der landeseigenen Wohnungsunternehmen</a>, the Senate's register of the 5,544 cadastral parcels on which Berlin's six state-owned housing companies and Berlinovo held housing at 31 December 2025, geocoded from the companies' annual returns. This map differs from the others in two ways. The register records land rather than dwellings, so it carries <b>no flat counts</b> and nothing here is sized by number of homes; Berlin is drawn as parcels rather than circles. It also shows <b>municipal-company stock, <a href="https://www.berlin.de/rbmskzl/aktuelles/pressemitteilungen/2026/pressemitteilung.1672180.php">404,170 flats</a> including Berlinovo's, rather than <em>Sozialwohnungen</em></b>, of which Berlin had 85,765 at the end of 2024. The two categories overlap but are not the same, and it is the subsidised category that is shrinking. Districts: <a href="https://daten.berlin.de/">ALKIS Berlin</a>; water: OpenStreetMap.</figcaption>
-    </figure>
-    <figure class="viz">
-      <div class="viz-head">
-        <div class="viz-title">Berlin's social-rent flats, 1991–2024</div>
-        <div class="viz-sub">Flats with subsidised, capped rents (<em>Sozialwohnungen</em>), in thousands</div>
-      </div>
-      <div class="viz-canvas" id="chart-berlin"></div>
-      <figcaption class="src">Source: IBB housing market reports for <a href="https://www.ibb.de/media/dokumente/publikationen/berliner-wohnungsmarkt/wohnungsmarktbericht/wohnungsmarktbericht_1991bis2000.pdf">1991–2000</a> (the 2000 figure includes 79,525 flats whose bindings were suspended), <a href="https://www.ibb.de/media/dokumente/publikationen/berliner-wohnungsmarkt/wohnungsmarktbericht/ibb_wohnungsmarktbericht_2011.pdf">2011</a>, <a href="https://www.ibb.de/media/dokumente/publikationen/berliner-wohnungsmarkt/wohnungsmarktbericht/ibb_wohnungsmarktbericht_2016.pdf">2016</a>, <a href="https://www.ibb.de/media/dokumente/publikationen/berliner-wohnungsmarkt/wohnungsmarktbericht/ibb-wohnungsmarktbericht-2021.pdf">2021</a> and <a href="https://www.ibb.de/media/dokumente/publikationen/berliner-wohnungsmarkt/wohnungsmarktbericht/2025/ibb-housing-market-report-2025.pdf">2025</a>; 2025 flows from <a href="https://www.berliner-zeitung.de/article/trotz-neubau-berlin-verliert-tausende-sozialwohnungen-10102483">Berliner Zeitung</a>.</figcaption>
+      <details class="maptab"><summary>The districts, as a table</summary><div id="maptab-berlin"></div></details>
+      <figcaption class="src">Source: <a href="https://daten.berlin.de/datensaetze/wohnungsbestand-der-landeseigenen-wohnungsunternehmen-wfs-4c4e0115">Wohnungsbestand der landeseigenen Wohnungsunternehmen</a>, the Senate's register of the 5,544 cadastral parcels on which Berlin's six state-owned housing companies and Berlinovo held housing at 31 December 2025, geocoded from the companies' annual returns. This map differs from the others in two ways. The register records land rather than dwellings, so it carries <b>no flat counts</b> and nothing here counts homes: each district is shaded by how much of its land the companies hold. It also shows <b>municipal-company stock, <a href="https://www.berlin.de/rbmskzl/aktuelles/pressemitteilungen/2026/pressemitteilung.1672180.php">404,170 flats</a> including Berlinovo's, rather than <em>Sozialwohnungen</em></b>, of which Berlin had 85,765 at the end of 2024. The two categories overlap but are not the same, and it is the subsidised category that is shrinking. Districts: <a href="https://daten.berlin.de/">ALKIS Berlin</a>; water: OpenStreetMap.</figcaption>
     </figure>
   </div>
   <div class="megadida">
@@ -258,20 +229,12 @@
     <figure class="viz citymap">
       <div class="viz-head">
         <div class="viz-title">Households renting social homes in London</div>
-        <div class="viz-sub">Households renting from a council or a housing association, by neighbourhood, 2021 Census · one circle per neighbourhood; bigger circles, more households</div>
+        <div class="viz-sub">Households renting from a council or a housing association, per km² in each borough, 2021 Census</div>
       </div>
       <div class="viz-canvas" id="map-london"></div>
       <div class="legend" id="mapleg-london"></div>
-      <details class="maptab"><summary>The neighbourhoods with the most, as a table</summary><div id="maptab-london"></div></details>
-      <figcaption class="src">Source: <a href="https://www.nomisweb.co.uk/datasets/c2021ts054">Census 2021, table TS054</a> (tenure), households renting from a council or a housing association, by Lower Layer Super Output Area: 4,994 neighbourhoods of about 1,500 people each, one of them with no social renters, 790,862 households in all. London, like the rest of England, has no public address-level register of social homes, so each circle sits on the ONS population-weighted centroid of its neighbourhood rather than on a building. The map shows density by neighbourhood, not the location of individual estates. Boundaries: ONS; the Thames: OpenStreetMap.</figcaption>
-    </figure>
-    <figure class="viz">
-      <div class="viz-head">
-        <div class="viz-title">Council homes in London, 1980–2025</div>
-        <div class="viz-sub">Homes owned by London's councils, in thousands · counted each spring</div>
-      </div>
-      <div class="viz-canvas" id="chart-london"></div>
-      <figcaption class="src">Source: <a href="https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants">MHCLG Live Table 116</a>, local-authority dwelling stock, London. The rise to the 1986 peak reflects Greater London Council estates passing to the boroughs, mainly in <a href="https://www.legislation.gov.uk/uksi/1982/301/made">1980–82</a>. Later falls combine Right to Buy sales with transfers of whole estates to housing associations, which remain social housing.</figcaption>
+      <details class="maptab"><summary>The boroughs, as a table</summary><div id="maptab-london"></div></details>
+      <figcaption class="src">Source: <a href="https://www.nomisweb.co.uk/datasets/c2021ts054">Census 2021, table TS054</a> (tenure), households renting from a council or a housing association, by Lower Layer Super Output Area: 4,994 neighbourhoods of about 1,500 people each, one of them with no social renters, 790,862 households in all. London, like the rest of England, has no public address-level register of social homes, so each neighbourhood is counted in the borough where its ONS population-weighted centroid lies. The map shows density by borough, or in the heatmap by neighbourhood, not the location of individual estates. Boundaries: ONS; the Thames: OpenStreetMap.</figcaption>
     </figure>
   </div>
   <div class="megadida">
@@ -294,20 +257,12 @@
     <figure class="viz citymap">
       <div class="viz-head">
         <div class="viz-title">Public housing in Rome</div>
-        <div class="viz-sub">Public homes in each neighbourhood · one circle per neighbourhood; bigger circles, more homes</div>
+        <div class="viz-sub">Public homes per km² in each neighbourhood (<em>zona urbanistica</em>)</div>
       </div>
       <div class="viz-canvas" id="map-rome"></div>
       <div class="legend" id="mapleg-rome"></div>
-      <details class="maptab"><summary>The neighbourhoods with the most, as a table</summary><div id="maptab-rome"></div></details>
-      <figcaption class="src">Source: <a href="https://www.mapparoma.info/mappe/mapparoma24-disuguaglianze-e-case-popolari-quartieri-roma/">mapparoma</a>, compiled from Roma Capitale and ATER records for 2019 and geocoded from the dwellings' addresses by Enrico Puccini: 72,327 homes across 131 of Rome's 155 <em>zone urbanistiche</em>. Neither Rome nor the Lazio region publishes a georeferenced register of public housing, so this compilation is the most detailed public account available. Its own note warns that the underlying ATER and Roma Capitale databases contain inaccuracies. Each circle sits on a neighbourhood centroid, not a building. Boundaries: <a href="https://geoportale.comune.roma.it/">Geoportale di Roma Capitale</a>; the Tiber and the Aniene: OpenStreetMap.</figcaption>
-    </figure>
-    <figure class="viz">
-      <div class="viz-head">
-        <div class="viz-title">Rome: homes, waiting list and flats handed out in 2024</div>
-        <div class="viz-sub">Public homes in the city, households on the waiting list, and flats given to people on that list in 2024</div>
-      </div>
-      <div class="viz-canvas" id="chart-rome"></div>
-      <figcaption class="src">Stock from the <a href="https://www.mapparoma.info/mappe/mapparoma24-disuguaglianze-e-case-popolari-quartieri-roma/">Roma Capitale / ATER compilation</a> (2019). Waiting list and 2024 assignments from Roma Capitale's own answers to freedom-of-information requests, <a href="https://contropiano.org/regionali/lazio/2025/04/23/poche-case-e-tante-difficolta-cosi-la-graduatoria-si-inceppa-i-dati-di-roma-capitale-0182452">reported in April 2025</a>; ATER's share from <a href="https://asia.usb.it/leggi-notizia/later-roma-nel-2024-ha-reso-disponibiliper-la-graduatoria-poco-piu-di-7-alloggi-al-mese-1741.html">the tenants' union's reading of ATER's own reply</a>.</figcaption>
+      <details class="maptab"><summary>The densest neighbourhoods, as a table</summary><div id="maptab-rome"></div></details>
+      <figcaption class="src">Source: <a href="https://www.mapparoma.info/mappe/mapparoma24-disuguaglianze-e-case-popolari-quartieri-roma/">mapparoma</a>, compiled from Roma Capitale and ATER records for 2019 and geocoded from the dwellings' addresses by Enrico Puccini: 72,327 homes across 131 of Rome's 155 <em>zone urbanistiche</em>. Neither Rome nor the Lazio region publishes a georeferenced register of public housing, so this compilation is the most detailed public account available. Its own note warns that the underlying ATER and Roma Capitale databases contain inaccuracies. The map shows each neighbourhood's total, not individual buildings. Boundaries: <a href="https://geoportale.comune.roma.it/">Geoportale di Roma Capitale</a>; the Tiber and the Aniene: OpenStreetMap.</figcaption>
     </figure>
   </div>
   <div class="megadida">
@@ -383,20 +338,20 @@
     <div class="src-body" id="src-body">
     <dl class="srclist">
       <div class="srcrow">
-        <dt>Country shares &amp; the map</dt>
-        <dd><a href="https://webfs.oecd.org/els-com/Affordable_Housing_Database/PH4-2-Social-rental-housing-stock.pdf">OECD Affordable Housing Database, indicator PH4.2 — Social rental housing stock</a> (updated 24 Nov 2025): social rental dwellings as a share of total dwellings, 2022 or latest year, from the OECD QuASH questionnaire. Every country value on the map is read from the indicator's <a href="https://webfs.oecd.org/els-com/Affordable_Housing_Database/PH4-2-Social-rental-housing-stock.xlsx">country data file</a>, not from the published chart, and carries its own reference year (2013–2022), which limits comparability, so the year is shown on hover. Three caveats apply: the OECD's "United Kingdom" covers <em>England only</em>; <em>Sweden is excluded by definition</em>, because municipal rents there are negotiated rather than sub-market; and <em>Greece is absent from the dataset</em>: the OECD lists it among the countries with <a href="https://webfs.oecd.org/els-com/Affordable_Housing_Database/PH4-3-Characteristics-of-social-rental-housing.pdf">no social rental housing</a> (indicator PH4.3), and its workers' housing body, the OEK, was <a href="https://www.dianeosis.org/en/2023/07/housing-policies-across-greece-and-europe/">abolished in 2012</a>. The European total of about 18 million is the sum of the European countries in the OECD's table of dwelling numbers; its 28 million also covers the US, Japan, Korea and other non-European members.</dd>
+        <dt>Country shares &amp; the chart</dt>
+        <dd><a href="https://webfs.oecd.org/els-com/Affordable_Housing_Database/PH4-2-Social-rental-housing-stock.pdf">OECD Affordable Housing Database, indicator PH4.2 — Social rental housing stock</a> (updated 24 Nov 2025): social rental dwellings as a share of total dwellings, 2022 or latest year, from the OECD QuASH questionnaire. Every country value in the chart is read from the indicator's <a href="https://webfs.oecd.org/els-com/Affordable_Housing_Database/PH4-2-Social-rental-housing-stock.xlsx">country data file</a>, not from the published chart, and carries its own reference year (2013–2022), which limits comparability, so the year is shown on hover. Three caveats apply: the OECD's "United Kingdom" covers <em>England only</em>; <em>Sweden is excluded by definition</em>, because municipal rents there are negotiated rather than sub-market; and <em>Greece is absent from the dataset</em>: the OECD lists it among the countries with <a href="https://webfs.oecd.org/els-com/Affordable_Housing_Database/PH4-3-Characteristics-of-social-rental-housing.pdf">no social rental housing</a> (indicator PH4.3), and its workers' housing body, the OEK, was <a href="https://www.dianeosis.org/en/2023/07/housing-policies-across-greece-and-europe/">abolished in 2012</a>. The European total of about 18 million is the sum of the European countries in the OECD's table of dwelling numbers; its 28 million also covers the US, Japan, Korea and other non-European members.</dd>
       </div>
       <div class="srcrow">
-        <dt>How the map is built</dt>
-        <dd>Each country is plotted at its capital and named on the map with its share beside the name. Circle <em>area</em> is proportional to the share; the radius scales with its square root. Names are placed by trying eight positions around each mark and taking the first that clears the labels already placed; on narrow screens the type grows to stay legible and names that no longer fit are dropped. The table beneath lists every country.</dd>
+        <dt>How the chart is built</dt>
+        <dd>The chart has three views of the same figures, one switch apart. Bars: each country's share on one scale, longest first, with the EU average quoted in the introduction marked across them. Out of 100 homes: a grid of 100 squares for each country, filled from the bottom up with its share; the last square is filled in part, so 34.1% is 34 squares and a tenth. By region: each country's share as a dot on one scale, grouped as the text groups them: northern and western Europe, southern Europe, and the formerly communist centre and east. The countries of the six cities in this dossier are in their city's colour; Sweden and Greece, which have no figure, are marked ✳. Hovering over a country shows the year of its figure and the OECD's note. The table beneath lists every country.</dd>
       </div>
       <div class="srcrow">
         <dt>The city cluster maps</dt>
-        <dd>One map per city, each drawn to the same frame and the same circle-size scale, so a 1,000-home estate is the same size everywhere. The cities differ greatly in extent, so the 5&nbsp;km bar on each map is what makes them comparable. What a circle represents differs by city, because the underlying registers differ. Two countries publish social housing at building level and we map the buildings: <a href="https://www.data.gv.at/katalog/datasets/a5987f3c-3131-4e6e-b91c-fe0756e69926">Vienna's Gemeindebau map layer</a> (last updated 2019: 1,657 complexes, 210,512 flats; the city repeats each complex's flat count on every building of the complex, so we count it once per address; Wiener Wohnen's current register lists 1,690 complexes and about 218,600 flats) and <a href="https://www.data.gouv.fr/datasets/donnees-detaillees-au-logement-du-repertoire-des-logements-locatifs-des-bailleurs-sociaux-rpls">France's RPLS</a>, a register of every social rental home, geolocated (9,645 Paris addresses, 248,447 homes; 2,193 dwellings carry no coordinates and are not drawn). Three do not, so the circles sit on neighbourhood centroids and those maps show <em>density by neighbourhood</em> rather than individual estates: London from the <a href="https://www.nomisweb.co.uk/datasets/c2021ts054">2021 Census, table TS054</a>, social-rented households per LSOA (4,994 neighbourhoods, 4,993 of them with social renters, 790,862 households); Helsinki from <a href="https://hri.fi/data/dataset/aluesarjat_a03s_hki_askan_hallintaperuste_htyyppi">Aluesarjat</a>, arava and interest-subsidised rentals per district at 31 December 2024 (65,088 flats, 16.3% of the city's 398,541 dwellings, or 19.7% with right-of-occupancy flats); and Rome from <a href="https://www.mapparoma.info/mappe/mapparoma24-disuguaglianze-e-case-popolari-quartieri-roma/">mapparoma's compilation</a> of Roma Capitale and ATER records for 2019, geocoded from addresses (72,327 homes across 131 <em>zone urbanistiche</em>). Neither the city nor the region publishes a register of its own, and the compilation warns that the databases behind it contain inaccuracies. <b>Berlin is drawn differently</b>: its register maps the parcels its state-owned housing companies hold housing on and attaches no dwelling figures at all, so there is nothing to size a circle by; the map shows the land itself, and it counts municipal-company stock rather than the shrinking <em>Sozialwohnungen</em> category. Boundaries come from each city's own register (ONS for London); rivers and coastlines from those registers and from OpenStreetMap.</dd>
+        <dd>One map per city, each drawn to the same frame and coloured on the same scale, so a colour means the same density everywhere. The cities differ greatly in extent, so the 5&nbsp;km bar on each map is what makes them comparable. What each map starts from differs by city, because the underlying registers differ. Two countries publish social housing at building level, and we count the buildings into their districts: <a href="https://www.data.gv.at/katalog/datasets/a5987f3c-3131-4e6e-b91c-fe0756e69926">Vienna's Gemeindebau map layer</a> (last updated 2019: 1,657 complexes, 210,512 flats; the city repeats each complex's flat count on every building of the complex, so we count it once per address; Wiener Wohnen's current register lists 1,690 complexes and about 218,600 flats) and <a href="https://www.data.gouv.fr/datasets/donnees-detaillees-au-logement-du-repertoire-des-logements-locatifs-des-bailleurs-sociaux-rpls">France's RPLS</a>, a register of every social rental home, geolocated (9,645 Paris addresses, 248,447 homes; 2,193 dwellings carry no coordinates and are not drawn). Three do not, so those maps start from a count for each neighbourhood or district rather than from individual estates: London from the <a href="https://www.nomisweb.co.uk/datasets/c2021ts054">2021 Census, table TS054</a>, social-rented households per LSOA (4,994 neighbourhoods, 4,993 of them with social renters, 790,862 households); Helsinki from <a href="https://hri.fi/data/dataset/aluesarjat_a03s_hki_askan_hallintaperuste_htyyppi">Aluesarjat</a>, arava and interest-subsidised rentals per district at 31 December 2024 (65,088 flats, 16.3% of the city's 398,541 dwellings, or 19.7% with right-of-occupancy flats); and Rome from <a href="https://www.mapparoma.info/mappe/mapparoma24-disuguaglianze-e-case-popolari-quartieri-roma/">mapparoma's compilation</a> of Roma Capitale and ATER records for 2019, geocoded from addresses (72,327 homes across 131 <em>zone urbanistiche</em>). Neither the city nor the region publishes a register of its own, and the compilation warns that the databases behind it contain inaccuracies. <b>Berlin is drawn differently</b>: its register maps the parcels its state-owned housing companies hold housing on and attaches no dwelling figures at all, so there is nothing to count; the map shows how much of each district's land the companies hold, and it counts municipal-company stock rather than the shrinking <em>Sozialwohnungen</em> category. Boundaries come from each city's own register (ONS for London); rivers and coastlines from those registers and from OpenStreetMap.</dd>
       </div>
       <div class="srcrow">
-        <dt>How the city heatmaps are drawn</dt>
-        <dd>Each city map opens on the circles and switches to a heatmap, and both draw on the same records. The heatmap spreads each record's homes over its surroundings with a Gaussian kernel (a standard deviation of 500&nbsp;m), then sorts the result into six bands of homes per km²: 100–250, 250–500, 500–1,000, 1,000–2,000, 2,000–4,000, and 4,000 or more. Land under 100 homes per km² is left blank. The bands are the same in every city, so a colour means the same density in Vienna as in Paris. Where the register gives one count per area rather than per building (Helsinki's districts, Rome's <em>zone urbanistiche</em>), each area's homes are first spread evenly across the area and then smoothed, so the map shows density by area rather than inventing estates inside it. London's neighbourhoods are small enough to be treated as points. Berlin's register carries no dwelling counts, so its heatmap measures something else: the share of the ground covered by the companies' parcels, smoothed the same way and banded at 2, 5, 8, 12, 16 and 20 per cent or more. Near a city's boundary, part of the smoothing falls outside the city and is cut off, so the colour along the edge is slightly understated.</dd>
+        <dt>How the city maps are drawn</dt>
+        <dd>Each city map opens on its districts and switches to a heatmap, and both draw on the same records. The district view adds up the homes in each district, using the city's own boundaries, and divides them by the district's area; London's neighbourhoods are counted in the borough where their centroid lies. Both views use the same colour bands, and a district with some homes but fewer than 100 per km² gets the palest shade. The heatmap spreads each record's homes over its surroundings with a Gaussian kernel (a standard deviation of 500&nbsp;m), then sorts the result into six bands of homes per km²: 100–250, 250–500, 500–1,000, 1,000–2,000, 2,000–4,000, and 4,000 or more. In the heatmap, land under 100 homes per km² is left blank. The bands are the same in every city, so a colour means the same density in Vienna as in Paris. Where the register gives one count per area rather than per building (Helsinki's districts, Rome's <em>zone urbanistiche</em>), each area's homes are first spread evenly across the area and then smoothed, so the map shows density by area rather than inventing estates inside it. London's neighbourhoods are small enough to be treated as points. Berlin's register carries no dwelling counts, so both its views measure something else: the share of the ground covered by the companies' parcels, in each district and, in the heatmap, smoothed the same way, banded at 2, 5, 8, 12, 16 and 20 per cent or more. Near a city's boundary, part of the smoothing falls outside the city and is cut off, so the colour along the edge is slightly understated.</dd>
       </div>
       <div class="srcrow">
         <dt>Europe-wide context</dt>
@@ -404,7 +359,16 @@
       </div>
       <div class="srcrow">
         <dt>City series</dt>
-        <dd>The rail small-multiples and the comparison slope are compiled by The Cormoran, and every point on them is a published figure for that year; lines join the points. Baselines differ by city (1990–2001) because each source begins at a different date, and each city measures social housing its own way. <b>Vienna</b>: municipal and limited-profit rentals as a share of main residences, from the 1991, 2001 and 2011 censuses as reported by <a href="http://www.univie.ac.at/intpol/website2014/wp-content/uploads/2015/04/Kadi-2015-Recommodifying-Housing-in-Formerly-Red-Vienna_.pdf">Kadi (2015)</a>, and from the 2025 Mikrozensus (<a href="https://www.statistik.at/fileadmin/publications/Wohnen_2025_bf.pdf">Statistik Austria</a>). <b>Helsinki</b>: state-subsidised rental flats, arava and from 1994 also interest-subsidised, as a share of all dwellings, from the city's report <a href="https://www.hel.fi/hel2/tietokeskus/julkaisut/pdf/14_01_07_Tilastoja_39_13_Vihavainen.pdf"><em>Asuminen Helsingissä tilastojen valossa 1990–2012</em></a> and the <a href="https://hri.fi/data/dataset/aluesarjat_a03s_hki_askan_hallintaperuste_htyyppi">Aluesarjat</a> database. <b>Paris</b>: the official SRU rate at 1 January, from <a href="https://www.apur.org/en/housing-dwelling/social-housing-stock/latest-figures-social-housing-paris">APUR</a>. <b>Berlin</b>: social-rent flats under the federal subsidy laws, from the <a href="https://www.ibb.de/media/dokumente/publikationen/berliner-wohnungsmarkt/wohnungsmarktbericht/wohnungsmarktbericht_1991bis2000.pdf">IBB housing market reports</a>, over the city's dwelling stock from the Berlin statistics office. <b>London</b>: council and housing-association dwellings as a share of all dwellings in London, <a href="https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants">MHCLG Live Table 109</a>. <b>Rome</b>: public housing as a share of all dwellings. The 2001 point is an estimate from the city's 2006 report <a href="https://www.comune.roma.it/web-resources/cms/documents/Abitare_a_Roma.pdf"><em>Abitare a Roma</em></a>: ATER's c. 53,000 flats and the city's 24,223 over the 2001 census stock of 1,151,736. The 2019 point is the <a href="https://www.mapparoma.info/mappe/mapparoma24-disuguaglianze-e-case-popolari-quartieri-roma/">mapparoma</a> compilation over the 2011 census stock. <b>Amsterdam</b>, context line only: the housing associations' share of the stock, 58% in 1995 (<a href="https://www.nul20.nl/dossiers/amsterdamse-corporaties-cijfers-0">AFWC via nul20</a>) and 37% today.</dd>
+        <dd>The shares in the six-city panel at the top and in the comparison chart are compiled by The Cormoran, and each is a published figure for that year; in the chart, a line joins each city's first figure to its latest. Baselines differ by city (1990–2001) because each source begins at a different date, and each city measures social housing its own way. <b>Vienna</b>: municipal and limited-profit rentals as a share of main residences, from the 1991, 2001 and 2011 censuses as reported by <a href="http://www.univie.ac.at/intpol/website2014/wp-content/uploads/2015/04/Kadi-2015-Recommodifying-Housing-in-Formerly-Red-Vienna_.pdf">Kadi (2015)</a>, and from the 2025 Mikrozensus (<a href="https://www.statistik.at/fileadmin/publications/Wohnen_2025_bf.pdf">Statistik Austria</a>). <b>Helsinki</b>: state-subsidised rental flats, arava and from 1994 also interest-subsidised, as a share of all dwellings, from the city's report <a href="https://www.hel.fi/hel2/tietokeskus/julkaisut/pdf/14_01_07_Tilastoja_39_13_Vihavainen.pdf"><em>Asuminen Helsingissä tilastojen valossa 1990–2012</em></a> and the <a href="https://hri.fi/data/dataset/aluesarjat_a03s_hki_askan_hallintaperuste_htyyppi">Aluesarjat</a> database. <b>Paris</b>: the official SRU rate at 1 January, from <a href="https://www.apur.org/en/housing-dwelling/social-housing-stock/latest-figures-social-housing-paris">APUR</a>. <b>Berlin</b>: social-rent flats under the federal subsidy laws, from the <a href="https://www.ibb.de/media/dokumente/publikationen/berliner-wohnungsmarkt/wohnungsmarktbericht/wohnungsmarktbericht_1991bis2000.pdf">IBB housing market reports</a>, over the city's dwelling stock from the Berlin statistics office. <b>London</b>: council and housing-association dwellings as a share of all dwellings in London, <a href="https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants">MHCLG Live Table 109</a>. <b>Rome</b>: public housing as a share of all dwellings. The 2001 point is an estimate from the city's 2006 report <a href="https://www.comune.roma.it/web-resources/cms/documents/Abitare_a_Roma.pdf"><em>Abitare a Roma</em></a>: ATER's c. 53,000 flats and the city's 24,223 over the 2001 census stock of 1,151,736. The 2019 point is the <a href="https://www.mapparoma.info/mappe/mapparoma24-disuguaglianze-e-case-popolari-quartieri-roma/">mapparoma</a> compilation over the 2011 census stock. <b>Amsterdam</b>, context line only: the housing associations' share of the stock, 58% in 1995 (<a href="https://www.nul20.nl/dossiers/amsterdamse-corporaties-cijfers-0">AFWC via nul20</a>) and 37% today.</dd>
+      </div>
+      <div class="srcrow">
+        <dt>Figures in the city chapters</dt>
+        <dd><b>How Vienna's households live</b>: <a href="https://www.statistik.at/fileadmin/publications/Wohnen_2025_bf.pdf">Statistik Austria, <em>Wohnen 2025</em></a> (Mikrozensus), households with their main residence in Vienna; shares are rounded.<br>
+        <b>Homelessness in Finland, 1987–2025</b>: <a href="https://www.varke.fi/en/statistics/homelessness">Varke homelessness surveys</a>, counted on 15 November each year: selected years from the full series in <a href="https://www.varke.fi/en/document/homeless-people-2024"><em>Homeless people 2024</em></a>, and the <a href="https://www.varke.fi/fi/tilastot-ja-julkaisut/asunnottomuus/asunnottomat-2025">2025 count</a> published in January 2026. Helsinki changed its counting method in 2018, so figures either side of that year are not fully comparable.<br>
+        <b>Paris: the share of homes that are social, 2001–2025</b>: <a href="https://www.apur.org/en/housing-dwelling/social-housing-stock/latest-figures-social-housing-paris">APUR, "Les chiffres du logement social à Paris"</a>: the official SRU rate at 1 January, from APUR's notes published between 2002 and 2026. From 2024 the number of main residences comes from owners' tax declarations rather than the housing tax, which lowered the rate although the stock kept growing.<br>
+        <b>Berlin's social-rent flats, 1991–2024</b>: IBB housing market reports for <a href="https://www.ibb.de/media/dokumente/publikationen/berliner-wohnungsmarkt/wohnungsmarktbericht/wohnungsmarktbericht_1991bis2000.pdf">1991–2000</a> (the 2000 figure includes 79,525 flats whose bindings were suspended), <a href="https://www.ibb.de/media/dokumente/publikationen/berliner-wohnungsmarkt/wohnungsmarktbericht/ibb_wohnungsmarktbericht_2011.pdf">2011</a>, <a href="https://www.ibb.de/media/dokumente/publikationen/berliner-wohnungsmarkt/wohnungsmarktbericht/ibb_wohnungsmarktbericht_2016.pdf">2016</a>, <a href="https://www.ibb.de/media/dokumente/publikationen/berliner-wohnungsmarkt/wohnungsmarktbericht/ibb-wohnungsmarktbericht-2021.pdf">2021</a> and <a href="https://www.ibb.de/media/dokumente/publikationen/berliner-wohnungsmarkt/wohnungsmarktbericht/2025/ibb-housing-market-report-2025.pdf">2025</a>; 2025 flows from <a href="https://www.berliner-zeitung.de/article/trotz-neubau-berlin-verliert-tausende-sozialwohnungen-10102483">Berliner Zeitung</a>.<br>
+        <b>Council homes in London, 1980–2025</b>: <a href="https://www.gov.uk/government/statistical-data-sets/live-tables-on-dwelling-stock-including-vacants">MHCLG Live Table 116</a>, local-authority dwelling stock, London. The rise to the 1986 peak reflects Greater London Council estates passing to the boroughs, mainly in <a href="https://www.legislation.gov.uk/uksi/1982/301/made">1980–82</a>. Later falls combine Right to Buy sales with transfers of whole estates to housing associations, which remain social housing.<br>
+        <b>Rome: homes, waiting list and flats handed out in 2024</b>: Stock from the <a href="https://www.mapparoma.info/mappe/mapparoma24-disuguaglianze-e-case-popolari-quartieri-roma/">Roma Capitale / ATER compilation</a> (2019). Waiting list and 2024 assignments from Roma Capitale's own answers to freedom-of-information requests, <a href="https://contropiano.org/regionali/lazio/2025/04/23/poche-case-e-tante-difficolta-cosi-la-graduatoria-si-inceppa-i-dati-di-roma-capitale-0182452">reported in April 2025</a>; ATER's share from <a href="https://asia.usb.it/leggi-notizia/later-roma-nel-2024-ha-reso-disponibiliper-la-graduatoria-poco-piu-di-7-alloggi-al-mese-1741.html">the tenants' union's reading of ATER's own reply</a>.</dd>
       </div>
       <div class="srcrow">
         <dt>Waiting lists &amp; losses</dt>
@@ -442,8 +406,9 @@
 <!-- ================= CREDITS (menu bar and footer come from the WordPress site) ================= -->
 <p class="credits">Concept: <a href="https://www.linkedin.com/in/jacopo-ottaviani/">Jacopo Ottaviani</a> and <a href="https://www.linkedin.com/in/stefano-liberti-43632330/">Stefano Liberti</a>. Data and design: <a href="https://www.linkedin.com/in/jacopo-ottaviani/">Jacopo Ottaviani</a>. Editing: <a href="https://www.linkedin.com/in/stefano-liberti-43632330/">Stefano Liberti</a>. Text and visualisations CC BY 4.0. Feedback and corrections: <a href="mailto:dossiers@thecormoran.com?subject=Feedback%3A%20Dossier%20N%C2%BA%202%20%E2%80%94%20The%20Homes%20Europe%20Stopped%20Building">dossiers@thecormoran.com</a>.</p>
 
-<script src="data/dossier-data.js?v=20261017"></script>
+<script src="data/dossier-data.js?v=20261030"></script>
 <script src="data/city-maps.js?v=20261001"></script>
-<script src="js/main.js?v=20261019"></script>
+<script src="data/city-districts.js?v=20261030"></script>
+<script src="js/main.js?v=20261030"></script>
 </body>
 </html>
