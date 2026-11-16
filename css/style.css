@@ -753,6 +753,7 @@ section.city {
   color: var(--ink);
 }
 .megadida .dida-text b { color: var(--petrol); }
+.megadida .dida-text + .dida-text { margin-top: 12px; }
 .megadida .policy {
   margin-top: 12px;
   font-family: var(--sans);
@@ -811,7 +812,6 @@ section.city {
   font-size: 15.5px;
   line-height: 1.5;
 }
-.event-card .ev b { font-family: var(--sans); font-size: 13px; color: var(--ink-2); font-weight: 600; }
 
 /* ------------------------------------------------ credits */
 .credits {
